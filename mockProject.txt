@@ -1,0 +1,67 @@
+Old MacDonald had a farm. And on his farm he had some Duck, cat, dog, pig:
+- Name
+
+- Age: count in days
+
+- Weight
+  + Duck: Min: 0kg(when born) - Max: 2kg; its weight +0.5kg if it is fed in 2 consecutive days.
+  + Cat: Min: 0kg(when born) - Max: 4kg; its weight +1kg if it is fed in 3 consecutive days.
+  + Dog: Min: 0kg(when born) - Max: 5kg; its weight +1kg if it is fed in 2 consecutive days.
+  + Pig: Min: 0kg(when born) - Max: 10kg; its weight +1kg if it is fed in 1 consecutive days.
+  
+- Happy index:0-10. The default is 5 when it is borned or bought.
+  + Duck and pig don't have the Happy index.
+  
+- Intellient index: 0-10. The default is 0 when it is borned or bought. 
+  + Only Dog has this index.
+  
+- Price: 
+  + Duck: Sell 1 USD for a duck (can only sell if its weight = 2kg.). Buy a duck has to pay 2 USD.
+  + Cat: Sell 5 USD for a cat (can only sell if its weight = 2kg.). Buy a cat has to pay 2 USD.
+  + Dog: Sell 10 USD for a dog with Intellient index = 10, otherwise its price is only 5 USD(can only sell if its weight > 4kg). Buy a Dog has to pay 4 USD.
+  + Pig: Sell 1 USD / 2kg meat. Buy a Dog has to pay 3 USD.
+
+Action
+- Eat:
+    + Duck: age < 1 cannot eat; age >= 1 eat 1 food unit per day
+    + Cat age < 2 cannot eat; age >= 2 eat 2 food units per day
+    + Dog age < 3 cannot eat; age >= 3 eat 4 food units per day
+    + Pig < 5 cannot eat; age >= 6 eat 7 food units per day
+    
+- Reproduction:
+    + Duck reproduces 4 baby ducks at 7 days old if its weight > ?. Each baby duck sounds 3 times when it is borned.
+    + Cat reproduces 1 baby cat at 7 days old if its weight >= ? and happy index >= ?. Each baby cat sounds 2 times when it is borned.
+    + Dog reproduces 1 baby dog at 8 days old if its weight >= ? and happy index >= ?. Each baby duck sounds 10 times when it is borned.
+    + Pig reproduces 2 baby Pigs at 15 days old if its weight > ?. Each baby pig sounds 4 times when it is borned.
+    
+- Go out: Happy index +2 each time an animal go out. an animal can only go out maximum 1 time per day.
+          Happy index -1 if an animal doesn't go out in a day. 
+          Happy index -2 if it has to hear 10 sounds in a day. 
+          Animal is not affected by sounds when it goes out in a day.
+          If Happy index = 0, it can not eat.
+          
+- Sound: Duck sounds "Quack!", Cat sounds "Meow!", Dog sounds "Woof!" and Pig sounds "Oink!". Print to screen when it sounds.
+- Die: 
+    + Duck dies if its age >= 10 days. When it dies, it sounds 10 times.
+    + Cat dies if its age >= 15 days. When it dies, it sounds 5 times.
+    + Dog dies if its age >= 17 days. When it dies, it sounds 3 times.
+    + Pig dies if its age >= 20 days. When it dies, it sounds 10 times.
+
+    
+- Train: Only Dog can be trainned. 
+    + Intellient index +2 each time it is trained. There is maximum 1 time for training in a day.
+    + Pay 0.5 USD per training time per dog.
+   
+Resource:
+- Food: 100 unit at the begining.
+- Money: 100 USD at the begining.
+
+MacDonald
+- Can feed animal eat.
+- Can let animal out.
+- Can buy more animal.
+- Can sell animal.
+- Can buy more food.
+- Can report animal and resource status.
+
+There are notices to screen for animal actions and resource changes for MacDonald to know about status change.
